@@ -18,6 +18,7 @@ services:
       - "8000:8000"
     environment:
       MONGO_URI: mongodb://mongodb:27017/nest
+      CLIENT_URL: http://176.114.90.241
     depends_on:
       - mongodb
     networks:
