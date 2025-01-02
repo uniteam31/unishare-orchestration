@@ -16,7 +16,6 @@ services:
     environment:
       MONGO_URI: mongodb://mongodb:27017/nest
       CLIENT_URL: http://176.114.90.241
-    #      CLIENT_URL: http://localhost:3000
     depends_on:
       - mongodb
     networks:
