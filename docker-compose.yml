@@ -5,9 +5,9 @@ services:
     image: def1s/unishare-frontend:latest
     ports:
       - "3000:80"
-#   environment:
-#     PORT: 3000
-#     API_URL: 8000 -> стоит по дефолту в сборщике
+    environment:
+#     PORT: 3000 -> по-умолчанию
+     API_URL: http://176.114.90.241/api -> стоит по дефолту в сборщике
     networks:
       - app-network
     restart: always
