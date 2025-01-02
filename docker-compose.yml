@@ -1,3 +1,5 @@
+# TODO повыносить в ENV или сделать репу приватной
+
 version: '3.8'
 
 services:
@@ -16,6 +18,7 @@ services:
     environment:
       MONGO_URI: mongodb://mongodb:27017/nest
       CLIENT_URL: http://176.114.90.241
+#      CLIENT_URL: http://localhost:3000
     depends_on:
       - mongodb
     networks:
@@ -27,9 +30,10 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
+#    TODO прописать
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: admin
+#      MONGO_INITDB_ROOT_PASSWORD: password
     networks:
       - app-network
     restart: always
