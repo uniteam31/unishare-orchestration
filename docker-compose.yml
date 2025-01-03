@@ -1,34 +1,36 @@
 version: '3.8'
 
 services:
-  frontend:
-    image: def1s/unishare-frontend:latest
-    ports:
-      - "3000:80"
-    networks:
-      - app-network
-    restart: always
-
-  backend:
-    image: def1s/unishare-backend:latest
-    ports:
-      - "8000:8000"
-    environment:
-      MONGO_URI: mongodb://mongodb:27017/nest
-      CLIENT_URL: http://176.114.90.241
-    depends_on:
-      - mongodb
-    networks:
-      - app-network
-    restart: always
+#  frontend:
+#    image: def1s/unishare-frontend:latest
+#    ports:
+#      - "3000:80"
+#    networks:
+#      - app-network
+#    restart: always
+#
+#  backend:
+#    image: def1s/unishare-backend:latest
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      MONGO_URI: mongodb://mongodb:27017/nest
+#      CLIENT_URL: http://176.114.90.241
+#    depends_on:
+#      - mongodb
+#    networks:
+#      - app-network
+#    restart: always
 
   mongodb:
     image: mongo:6
     container_name: mongodb
     ports:
       - "27017:27017"
+    env_file:
+      .env
     volumes:
-      - mongodb-data:/data/db  # Сохраняем данные в volume
+      - mongodb-data:/data/db
     networks:
       - app-network
     restart: always
