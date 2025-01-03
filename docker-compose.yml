@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # Для фронта все ENV задаются на этапе сборки контейнера
   frontend:
     image: def1s/unishare-frontend:latest
     ports:
@@ -9,13 +10,13 @@ services:
       - app-network
     restart: always
 
+  # Для бэка все берем из .env
   backend:
     image: def1s/unishare-backend:latest
     ports:
       - "8000:8000"
-    environment:
-      MONGO_URI: mongodb://mongodb:27017/nest
-      CLIENT_URL: http://176.114.90.241
+    env_file:
+      .env
     depends_on:
       - mongodb
     networks:
