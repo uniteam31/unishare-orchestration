@@ -26,8 +26,8 @@ services:
   mongodb:
     image: mongo:6
     container_name: mongodb
-#    ports:
-#      - "27017:27017"
+    ports:
+      - "27017:27017"
     volumes:
       - mongodb-data:/data/db  # Сохраняем данные в volume
     networks:
