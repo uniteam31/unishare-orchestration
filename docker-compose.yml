@@ -10,6 +10,22 @@ services:
       - app-network
     restart: always
 
+  notes:
+    image: def1s/unishare-notes:latest
+    ports:
+      - "3001:80"
+    networks:
+      - app-network
+    restart: always
+
+  friends:
+    image: def1s/unishare-friends:latest
+    ports:
+      - "3002:80"
+    networks:
+      - app-network
+    restart: always
+
   # Для бэка все берем из .env
   backend:
     image: def1s/unishare-backend:latest
