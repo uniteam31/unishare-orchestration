@@ -19,6 +19,10 @@ server {
     location /services/friends/ {
         proxy_pass http://localhost:3002/;
     }
+
+    location /services/accountSettings/ {
+            proxy_pass http://localhost:3004/;
+    }
 }
 server {
 	server_name unishare.space; # managed by Certbot
@@ -38,5 +42,9 @@ server {
 
     location /services/friends/ {
         proxy_pass http://localhost:3002/;
+    }
+
+    location /services/accountSettings/ {
+            proxy_pass http://localhost:3004/;
     }
 }
