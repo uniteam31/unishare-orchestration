@@ -20,8 +20,12 @@ server {
         proxy_pass http://localhost:3002/;
     }
 
+    location /services/calendar/ {
+        proxy_pass http://localhost:3003/;
+    }
+
     location /services/accountSettings/ {
-            proxy_pass http://localhost:3004/;
+        proxy_pass http://localhost:3004/;
     }
 }
 server {
@@ -44,7 +48,11 @@ server {
         proxy_pass http://localhost:3002/;
     }
 
+    location /services/calendar/ {
+        proxy_pass http://localhost:3003/;
+    }
+
     location /services/accountSettings/ {
-            proxy_pass http://localhost:3004/;
+        proxy_pass http://localhost:3004/;
     }
 }
