@@ -55,4 +55,8 @@ server {
     location /services/accountSettings/ {
         proxy_pass http://localhost:3004/;
     }
+
+    location /services/spaces/ {
+            proxy_pass http://localhost:3005/;
+    }
 }
