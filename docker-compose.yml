@@ -58,25 +58,28 @@ services:
     env_file:
       .env
     depends_on:
-      - mongodb
+      - postgres
     networks:
       - app-network
     restart: always
 
-  mongodb:
-    image: mongo:6
-    container_name: mongodb
-#    ports:
-#      - "27017:27017"
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    env_file:
+      .env
+    ports:
+      - "5435:5432"
     volumes:
-      - mongodb-data:/data/db  # Сохраняем данные в volume
+      - ./pgdata:/var/lib/postgresql/data/pgdata
+    restart: unless-stopped
     networks:
       - app-network
-    restart: always
 
 networks:
   app-network:
     driver: bridge
 
 volumes:
-  mongodb-data:
+  pgdata:
+    driver: local

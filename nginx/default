@@ -57,6 +57,6 @@ server {
     }
 
     location /services/spaces/ {
-            proxy_pass http://localhost:3005/;
+        proxy_pass http://localhost:3005/;
     }
 }
