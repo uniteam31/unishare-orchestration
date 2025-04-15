@@ -27,6 +27,14 @@ server {
     location /services/accountSettings/ {
         proxy_pass http://localhost:3004/;
     }
+
+    location /services/spaces/ {
+        proxy_pass http://localhost:3005/;
+    }
+
+    location /services/disk/ {
+        proxy_pass http://localhost:3006/;
+    }
 }
 server {
 	server_name unishare.space; # managed by Certbot
@@ -58,5 +66,9 @@ server {
 
     location /services/spaces/ {
         proxy_pass http://localhost:3005/;
+    }
+
+    location /services/disk/ {
+        proxy_pass http://localhost:3006/;
     }
 }

@@ -50,6 +50,14 @@ services:
       - app-network
     restart: always
 
+  disk:
+    image: def1s/unishare-disk:latest
+    ports:
+      - "3006:80"
+    networks:
+      - app-network
+    restart: always
+
   # Для бэка все берем из .env
   backend:
     image: def1s/unishare-backend:latest
